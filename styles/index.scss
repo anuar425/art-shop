@@ -1,0 +1,59 @@
+// Atoms
+
+// Molecules
+
+.image-card__container {
+    .parallax-container {
+        width: "100%";
+        display: "grid";
+        grid-template-columns: "auto auto auto auto auto";
+        .parallax-child {
+            display: "flex";
+            align-items: "center";
+            justify-content: "center";
+            width: "auto";
+            height: "100%";
+        }
+    }
+    .container-banner {
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transition: all 0.2s ease-in-out;
+        opacity: 0;
+    }
+    img {
+        scale: 1.1;
+        transition: all 0.2s ease-in-out;
+    }
+}
+
+.image-card__container:hover {
+    position: relative;
+    .container-banner {
+        z-index: 2;
+        background-color: rgba($color: #ffffff, $alpha: 0.7);
+        opacity: 1;
+    }
+    img {
+        scale: 1.2;
+    }
+}
+
+// Organisms
+
+.masonry-grid {
+    display: flex;
+    column-gap: 8px;
+    .masonry-grid_column {
+        display: flex;
+        flex-direction: column;
+        row-gap: 8px;
+    }
+}
