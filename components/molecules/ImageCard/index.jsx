@@ -14,14 +14,14 @@ function ImageCard(props) {
           globalFactorY={0.3}
           resetOnLeave
         >
-          <div className="container-banner">
+          {/* <div className="container-banner">
             <h4>Image name</h4>
             <p>View</p>
-          </div>
+          </div> */}
           <MouseParallaxChild
             className="parallax-child"
-            factorX={0.5}
-            factorY={0.5}
+            factorX={0.4}
+            factorY={0.4}
           >
             <Image {...props.imageProps} />
           </MouseParallaxChild>

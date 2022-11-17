@@ -10,28 +10,30 @@ function ShopGallery(props) {
   }, []);
   return (
     <>
-      <div className="row">
-        <Masonry
-          breakpointCols={4}
-          className="masonry-grid"
-          columnClassName="masonry-grid_column"
-        >
-          {props.app.images.map((image, idx) => (
-            <>
-              <Link href={`/${idx}`}>
-                <a className=" text-black">
-                  <ImageCard
-                    imageProps={{
-                      className: "w-100 h-50",
-                      src: image.path,
-                      alt: `image-alt-${idx}`,
-                    }}
-                  />
-                </a>
-              </Link>
-            </>
-          ))}
-        </Masonry>
+      <div className="container">
+        <div className="row">
+          <Masonry
+            breakpointCols={4}
+            className="masonry-grid"
+            columnClassName="masonry-grid_column"
+          >
+            {props.app.images.map((image, idx) => (
+              <>
+                <Link href={`/${idx}`}>
+                  <a className=" text-black">
+                    <ImageCard
+                      imageProps={{
+                        className: "w-100 h-50",
+                        src: image.path,
+                        alt: `image-alt-${idx}`,
+                      }}
+                    />
+                  </a>
+                </Link>
+              </>
+            ))}
+          </Masonry>
+        </div>
       </div>
     </>
   );

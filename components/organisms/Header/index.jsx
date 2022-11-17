@@ -3,11 +3,11 @@ import Link from "next/link";
 function Header() {
   return (
     <>
-      <section className="header">
-        <nav className="navbar navbar-expand-lg px-lg-3 py-lg-4 ">
+      <section className="header shadow-sm sticky-top navbar-light ">
+        <nav className="navbar navbar-expand-lg  bg-light px-lg-3 py-lg-4 fw-semibold ">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
-              Navbar
+              Armat Bektas
             </a>
             <button
               className="navbar-toggler"
@@ -20,35 +20,40 @@ function Header() {
             >
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav">
+            <div
+              className="collapse navbar-collapse justify-content-end"
+              id="navbarNav"
+            >
+              <ul className="navbar-nav gap-4">
                 <li className="nav-item">
-                  <Link href={"/"}>
-                    <a className="nav-link active" aria-current="page" href="#">
+                  <Link href="/">
+                    <a className="nav-link" aria-current="page" href="#">
                       Work
                     </a>
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link href={"/about"}>
+                  <Link href="/about">
                     <a className="nav-link">About</a>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link href="/events">
+                    <a className="nav-link">Events</a>
                   </Link>
                 </li>
 
                 <li className="nav-item">
-                  <Link href={"/shop"}>
-                    <a className="nav-link" href="#">
-                      Shop
-                    </a>
+                  <Link href="/shop">
+                    <a className="nav-link">Shop</a>
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link href={"/contact"}>
-                    <a className="nav-link" href="#">
-                      Contact
-                    </a>
+                  <Link href="/contact">
+                    <a className="nav-link">Contact</a>
                   </Link>
                 </li>
+                <li></li>
               </ul>
             </div>
           </div>

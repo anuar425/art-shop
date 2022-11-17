@@ -46,7 +46,10 @@ function PreviewImage(props) {
               <h2>{image.name}</h2>
             </div>
             <div className="row justify-content-center mb-3">
-              <div className="col-auto">
+              <div
+                className="col position-relative"
+                style={{ height: "580px" }}
+              >
                 <NextImage src={`/${image.path}`} alt="image" />
               </div>
             </div>

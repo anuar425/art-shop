@@ -9,10 +9,9 @@ function NextImage(props) {
     <div>
       <Image
         alt="Picture of the author"
-        width={800}
-        height={800}
         objectFit="contain"
-        layout="fixed"
+        layout="fill"
+        position="relative"
         {...props}
       />
     </div>

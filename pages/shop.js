@@ -1,11 +1,16 @@
 import { ShopGallery } from "@/components/organisms";
+import { motion } from "framer-motion";
 
 function Shop() {
   return (
     <>
-      <div className="container">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
         <ShopGallery />
-      </div>
+      </motion.div>
     </>
   );
 }

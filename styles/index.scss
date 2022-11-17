@@ -1,4 +1,36 @@
+// custom styles
+.custom-icon {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    color: #b57900;
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.text-brown {
+    color: #b57900;
+}
+
+.bg-blue {
+    background-color: #212738;
+}
+
+.bg-brown {
+    background-color: #b57900;
+}
+
 // Atoms
+
+.icon-circle {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    background: #ffffff;
+}
 
 // Molecules
 
@@ -25,12 +57,12 @@
         width: 100%;
         height: 100%;
         position: absolute;
-        transition: all 0.2s ease-in-out;
+        transition: all 0.5s ease-in-out;
         opacity: 0;
     }
     img {
-        scale: 1.1;
-        transition: all 0.2s ease-in-out;
+        scale: 1.05;
+        transition: all 0.5s ease-in-out;
     }
 }
 
@@ -42,7 +74,7 @@
         opacity: 1;
     }
     img {
-        scale: 1.2;
+        scale: 1.15;
     }
 }
 
@@ -55,5 +87,98 @@
         display: flex;
         flex-direction: column;
         row-gap: 8px;
+    }
+}
+
+.about__container {
+    background-image: url("/images/8.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 580px;
+    .about__container-inner {
+        box-shadow: 0px -25px 20px 50px rgb(0, 0, 0);
+        padding-top: 64px;
+        background-color: black;
+        color: white;
+    }
+}
+
+.about__author-text-container {
+    padding: 0px 240px 0px 160px;
+    h1 {
+        font-size: 60px;
+    }
+    h3 {
+        font-size: 40px;
+    }
+    p {
+        font-size: 32px;
+        text-align: justify;
+    }
+}
+
+// .shop-image__picture {
+//     height: 800px;
+// }
+
+.footer {
+    background-color: #b57900;
+    .footer__author-action {
+        font-size: 42px;
+    }
+}
+
+.hero {
+    position: relative;
+    .hero-background {
+        background-image: url("/images/hero/1.jpeg");
+        background-size: cover;
+        background-color: #ffffff;
+        position: absolute;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+        top: -30%;
+        .hero-background-filter {
+            width: 100%;
+            height: 100%;
+            background-color: #212738;
+            opacity: 0.3;
+        }
+    }
+    .hero-content {
+        .hero-content-header {
+            height: 50vh;
+        }
+        .hero-content-main {
+            background-color: #766a5e;
+            padding: 60px 0px;
+            h1 {
+                font-size: 90px;
+            }
+            p {
+                font-size: 38px;
+                width: 50%;
+            }
+        }
+        .hero-content-footer {
+            padding: 60px 0px;
+            display: flex;
+            justify-content: space-around;
+            font-size: 30px;
+            font-weight: 600;
+            background-color: #b57900;
+            color: #ffffff;
+        }
+    }
+}
+
+.events-gallery {
+    background-color: rgba(33, 39, 56, 0.5);
+    .events-gallery-carousel-item-image {
+        height: 91vh;
+    }
+    .events-gallery-carousel-item-caption {
+        background-color: rgba(0, 0, 0, 0.7);
     }
 }

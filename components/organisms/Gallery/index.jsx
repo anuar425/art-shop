@@ -22,7 +22,7 @@ function Gallery(props) {
 
   return (
     <>
-      <section className="gallery">
+      <section className="gallery bg-light pt-2">
         <div className="gallery__container">
           <Masonry
             breakpointCols={4}
