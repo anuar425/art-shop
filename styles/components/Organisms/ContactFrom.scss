@@ -1,0 +1,9 @@
+.contact-form {
+    height: auto;
+}
+
+@media (min-width: 992px) {
+    .contact-form {
+        height: 100vh;
+    }
+}

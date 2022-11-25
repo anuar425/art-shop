@@ -12,11 +12,11 @@ function ShopImage(props) {
 
   useEffect(() => {
     props.getImage(router.query.id);
-  }, []);
+  }, [router]);
 
   useEffect(() => {
     if (props.app.image) {
-      console.log(props.app.image);
+      // console.log(props.app.image);
       setImage(props.app.image);
     }
   }, [props.app.image]);
@@ -27,24 +27,27 @@ function ShopImage(props) {
         {image && (
           <>
             <div className="row">
-              <div className="col-8 d-flex justify-content-center mb-4 shop-image__picture ">
+              <div className="col-xl-8 col-lg-7 col-12 d-flex justify-content-center mb-4 ">
                 <Image
-                  src={props.app.image.path}
+                  src={props.app.image?.path}
                   alt="image-preview"
-                  className="w-100"
+                  className="w-100 shop-image__picture"
                 />
               </div>
-              <div className="col mb-4 ps-5">
-                <h1 className="mb-4">{props.app.image.name}</h1>
+              <div className="col mb-4 ps-lg-5">
+                <h1 className="mb-4">{props.app.image?.name}</h1>
                 <h5 className="mb-4">$700.00</h5>
-                <p className="mb-4">{props.app.image.description}</p>
+                <p className="mb-4">{props.app.image?.description}</p>
                 <p className="mb-1">- Watch the Painting Process</p>
                 <p className="mb-1">- 20" x 20" Acrylic on Canvas</p>
                 <p className="mb-1">- Signed by The Artist</p>
                 <p className="mb-5">- Free International Shipping</p>
                 <form>
                   <div className="w-25 mb-4">
-                    <label for="quantity" className="form-label fw-semibold">
+                    <label
+                      htmlFor="quantity"
+                      className="form-label fw-semibold"
+                    >
                       Quantity
                     </label>
                     <input

@@ -1,0 +1,330 @@
+.hero {
+    position: relative;
+    .hero-background {
+        position: absolute;
+        z-index: -1;
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+        top: -42%;
+    }
+    .hero-content {
+        .hero-content-header {
+            height: 160px;
+        }
+        .hero-content-main {
+            background-color: #766a5e;
+            padding: 40px 0px;
+            h1 {
+                font-size: 50px;
+            }
+            p {
+                font-size: 20px;
+                width: 100%;
+            }
+        }
+        .hero-content-footer {
+            padding: 60px 0px;
+            font-size: 24px;
+            font-weight: 600;
+            background-color: #b57900;
+            color: #ffffff;
+            white-space: pre;
+        }
+    }
+}
+
+@media (min-width: 576px) {
+    .hero {
+        .hero-background {
+            top: -40%;
+        }
+        .hero-content {
+            .hero-content-main {
+                h1 {
+                    font-size: 60px;
+                }
+                p {
+                    font-size: 24px;
+                }
+            }
+            .hero-content-header {
+                height: 220px;
+            }
+            .hero-content-footer {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .hero {
+        .hero-background {
+            top: -38%;
+        }
+        .hero-content {
+            .hero-content-header {
+                height: 280px;
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .hero {
+        .hero-background {
+            top: -31%;
+        }
+        .hero-content {
+            .hero-content-main {
+                h1 {
+                    font-size: 70px;
+                }
+                p {
+                    font-size: 28px;
+                }
+            }
+            .hero-content-header {
+                height: 390px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .hero {
+        .hero-background {
+            top: -30%;
+        }
+        .hero-content {
+            .hero-content-header {
+                height: 450px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1400px) {
+    .hero {
+        .hero-background {
+            top: -28%;
+        }
+        .hero-content {
+            .hero-content-main {
+                h1 {
+                    font-size: 90px;
+                }
+                p {
+                    font-size: 38px;
+                }
+            }
+            .hero-content-header {
+                height: 550px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1920px) {
+    .hero {
+        .hero-background {
+            top: -23%;
+        }
+        .hero-content {
+            .hero-content-header {
+                height: 750px;
+            }
+        }
+    }
+}
+
+// New hero test
+
+.new-hero {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-image: url("/images/hero/3.jpg");
+    background-position: 0px 0px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    .new-hero-title {
+        z-index: 1;
+        h1 {
+            font-size: 22px;
+            border-bottom: 2px solid #ffffff;
+        }
+        h3 {
+            font-size: 14px;
+        }
+        p {
+            font-size: 8px;
+        }
+    }
+}
+
+.new-hero::before {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+}
+
+@media (min-width: 576px) {
+    .new-hero {
+        height: 400px;
+        .new-hero-title {
+            h1 {
+                font-size: 30px;
+            }
+            h3 {
+                font-size: 22px;
+            }
+            p {
+                font-size: 10px;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .new-hero {
+        height: 450px;
+        .new-hero-title {
+            h1 {
+                font-size: 38px;
+            }
+            h3 {
+                font-size: 26px;
+            }
+            p {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .new-hero {
+        height: 650px;
+        .new-hero-title {
+            h1 {
+                border-bottom: 4px solid #ffffff;
+                font-size: 56px;
+            }
+            h3 {
+                font-size: 36px;
+            }
+            p {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .new-hero {
+        height: 800px;
+        .new-hero-title {
+            h1 {
+                font-size: 70px;
+            }
+            h3 {
+                font-size: 40px;
+            }
+            p {
+                font-size: 22px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1400px) {
+    .new-hero {
+        height: 900px;
+        .new-hero-title {
+            h1 {
+                font-size: 68px;
+            }
+            h3 {
+                font-size: 44px;
+            }
+            p {
+                font-size: 26px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1600px) {
+    .new-hero {
+        height: 1000px;
+        .new-hero-title {
+            h1 {
+                font-size: 82px;
+            }
+            h3 {
+                font-size: 48px;
+            }
+            p {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1800px) {
+    .new-hero {
+        height: 1100px;
+        .new-hero-title {
+            h1 {
+                font-size: 100px;
+            }
+            h3 {
+                font-size: 50px;
+            }
+            p {
+                font-size: 32px;
+            }
+        }
+    }
+}
+
+@media (min-width: 2000px) {
+    .new-hero {
+        height: 1100px;
+        .new-hero-title {
+            h1 {
+                font-size: 110px;
+            }
+            h3 {
+                font-size: 60px;
+            }
+            p {
+                font-size: 34px;
+            }
+        }
+    }
+}
+
+@media (min-width: 2200px) {
+    .new-hero {
+        height: 1200px;
+        .new-hero-title {
+            h1 {
+                font-size: 120px;
+            }
+            h3 {
+                font-size: 60px;
+            }
+            p {
+                font-size: 34px;
+            }
+        }
+    }
+}

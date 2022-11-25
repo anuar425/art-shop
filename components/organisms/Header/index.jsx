@@ -1,60 +1,30 @@
+import { MobileMenu, NavigationMenu } from "@/components/molecules";
+import useModal from "@/Hooks/useModal";
 import Link from "next/link";
 
 function Header() {
+  const { show, toggle } = useModal();
+
+  const handleShowOffCanvas = () => {
+    toggle();
+  };
+
   return (
     <>
-      <section className="header shadow-sm sticky-top navbar-light ">
+      <section className="header shadow-sm sticky-top navbar-light">
         <nav className="navbar navbar-expand-lg  bg-light px-lg-3 py-lg-4 fw-semibold ">
-          <div className="container-fluid">
-            <a className="navbar-brand" href="#">
-              Armat Bektas
-            </a>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
+          <div className="container-fluid flex-row-reverse flex-lg-row">
+            <Link href="/">
+              <a className="navbar-brand  fs-2">Armat Bektas</a>
+            </Link>
+
+            <button className="navbar-toggler" onClick={handleShowOffCanvas}>
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div
-              className="collapse navbar-collapse justify-content-end"
-              id="navbarNav"
-            >
-              <ul className="navbar-nav gap-4">
-                <li className="nav-item">
-                  <Link href="/">
-                    <a className="nav-link" aria-current="page" href="#">
-                      Work
-                    </a>
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link href="/about">
-                    <a className="nav-link">About</a>
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link href="/events">
-                    <a className="nav-link">Events</a>
-                  </Link>
-                </li>
+            <MobileMenu showMenu={show} closeMenu={toggle} />
 
-                <li className="nav-item">
-                  <Link href="/shop">
-                    <a className="nav-link">Shop</a>
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link href="/contact">
-                    <a className="nav-link">Contact</a>
-                  </Link>
-                </li>
-                <li></li>
-              </ul>
+            <div className="collapse navbar-collapse justify-content-md-end fs-5">
+              <NavigationMenu />
             </div>
           </div>
         </nav>

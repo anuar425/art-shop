@@ -18,9 +18,9 @@ function MyApp({ Component, pageProps, router }) {
     import("bootstrap/dist/js/bootstrap");
   }, []);
 
-  useEffect(() => {
-    console.log(router.route);
-  }, [router]);
+  // useEffect(() => {
+  //   console.log(router.route);
+  // }, [router]);
 
   return (
     <Provider store={store}>
@@ -28,6 +28,7 @@ function MyApp({ Component, pageProps, router }) {
       <LazyMotion features={domAnimation}>
         <AnimatePresence initial={false} exitBeforeEnter={true}>
           <m.div
+            id="base-motion-div"
             key={router.route}
             initial={{
               opacity: 0,

@@ -6,6 +6,13 @@ import { ImageLink, PreviewImage, ImageCard } from "@/components/molecules";
 import useModal from "@/Hooks/useModal";
 import data from "@/testData";
 
+const breakpointColumnsObj = {
+  default: 4,
+  1100: 3,
+  700: 2,
+  500: 2,
+};
+
 function Gallery(props) {
   const { show, toggle } = useModal();
   const [imageId, setImageId] = useState(null);
@@ -16,16 +23,17 @@ function Gallery(props) {
   };
 
   useEffect(() => {
-    console.log(data);
+    // console.log(data);
     // props.getImages();
   }, []);
 
   return (
     <>
-      <section className="gallery bg-light pt-2">
+      <section className="gallery bg-light py-5">
         <div className="gallery__container">
+          <h1 className="text-center mb-5">Gallery</h1>
           <Masonry
-            breakpointCols={4}
+            breakpointCols={breakpointColumnsObj}
             className="masonry-grid"
             columnClassName="masonry-grid_column"
           >

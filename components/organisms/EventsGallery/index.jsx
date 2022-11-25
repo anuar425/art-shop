@@ -1,5 +1,5 @@
 import { Image } from "@/components/atoms";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Carousel } from "react-bootstrap";
 
 const data = {
@@ -172,7 +172,7 @@ function EventsGallery() {
   return (
     <>
       <section className="events-gallery">
-        <div
+        {/* <div
           id="carouselExampleControls"
           className="carousel slide events-gallery-carousel"
           data-bs-ride="false"
@@ -190,7 +190,7 @@ function EventsGallery() {
                     alt={`item-author-${idx}`}
                     className="events-gallery-carousel-item-image"
                   />
-                  <div class="events-gallery-carousel-item-caption carousel-caption d-none d-md-block ">
+                  <div className="events-gallery-carousel-item-caption carousel-caption d-none d-md-block ">
                     <h5>{item}</h5>
                   </div>
                 </div>
@@ -221,6 +221,29 @@ function EventsGallery() {
             ></span>
             <span className="visually-hidden">Next</span>
           </button>
+        </div> */}
+        <div className="container py-5">
+          <div className="row text-center mb-4">
+            <h1>Events</h1>
+          </div>
+          <div className="events-gallery-item-container">
+            {data.aboutImages.map((item, idx) => (
+              <>
+                <React.Fragment key={idx}>
+                  <div className="events-gallery-item" key={idx}>
+                    <Image
+                      src={`images/author/Рисунок${idx + 1}.jpg`}
+                      alt={`item-author-${idx}`}
+                      className="events-gallery-item-image"
+                    />
+                    <div className="events-gallery-item-caption">
+                      <p>{item}</p>
+                    </div>
+                  </div>
+                </React.Fragment>
+              </>
+            ))}
+          </div>
         </div>
       </section>
     </>

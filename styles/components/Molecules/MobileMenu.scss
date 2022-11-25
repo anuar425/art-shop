@@ -1,0 +1,15 @@
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #ffffff;
+    z-index: 1040;
+    overflow: overlay;
+    .mobile-menu-close-button {
+        top: 40px;
+        right: 40px;
+        position: fixed;
+    }
+}

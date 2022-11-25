@@ -9,9 +9,9 @@ function Home() {
     offset: ["start end", "end end"],
   });
 
-  useEffect(() => {
-    console.log(scrollYProgress);
-  }, [ref]);
+  // useEffect(() => {
+  //   console.log(scrollYProgress);
+  // }, [ref]);
 
   return (
     <>

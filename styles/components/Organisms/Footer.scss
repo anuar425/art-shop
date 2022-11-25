@@ -1,0 +1,14 @@
+.footer {
+    background-color: #b57900;
+    .footer__author-action {
+        font-size: 38px;
+    }
+}
+
+@media (min-width: 576px) {
+    .footer {
+        .footer__author-action {
+            font-size: 42px;
+        }
+    }
+}
