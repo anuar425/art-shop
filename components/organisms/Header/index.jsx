@@ -12,7 +12,7 @@ function Header() {
   return (
     <>
       <section className="header shadow-sm sticky-top navbar-light">
-        <nav className="navbar navbar-expand-lg  bg-light px-lg-3 py-lg-4 fw-semibold ">
+        <nav className="navbar navbar-expand-lg  bg-light px-lg-3 fw-semibold h-100 ">
           <div className="container-fluid flex-row-reverse flex-lg-row">
             <Link href="/">
               <a className="navbar-brand  fs-2">Armat Bektas</a>

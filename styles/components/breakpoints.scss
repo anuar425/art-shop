@@ -1,0 +1,79 @@
+$breakpoints: (
+    "xs": 0px,
+    "sm": 576px,
+    "md": 768px,
+    "lg": 992px,
+    "xl": 1200px,
+    "xxl": 1400px,
+    "1600": 1600px,
+    "1800": 1800px,
+    "2000": 2000px,
+    "2200": 2200px,
+    "2400": 2400px,
+);
+
+@mixin xs {
+    @media (min-width: map-get($breakpoints, "xs")) and (max-width: map-get($breakpoints, "sm")) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media (min-width: map-get($breakpoints, "sm")) and (max-width: map-get($breakpoints, "md")) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (min-width: map-get($breakpoints, "md")) and (max-width: map-get($breakpoints, "lg")) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (min-width: map-get($breakpoints, "lg")) and (max-width: map-get($breakpoints, "xl")) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media (min-width: map-get($breakpoints, "xl")) and (max-width: map-get($breakpoints, "xxl")) {
+        @content;
+    }
+}
+
+@mixin xxl {
+    @media (min-width: map-get($breakpoints, "xxl")) and (max-width: map-get($breakpoints, "1600")) {
+        @content;
+    }
+}
+
+@mixin screen-1600 {
+    @media (min-width: map-get($breakpoints, "1600")) and (max-width: map-get($breakpoints, "1800")) {
+        @content;
+    }
+}
+
+@mixin screen-1800 {
+    @media (min-width: map-get($breakpoints, "1800")) and (max-width: map-get($breakpoints, "2000")) {
+        @content;
+    }
+}
+
+@mixin screen-2000 {
+    @media (min-width: map-get($breakpoints, "2000")) and (max-width: map-get($breakpoints, "2200")) {
+        @content;
+    }
+}
+
+@mixin screen-2200 {
+    @media (min-width: map-get($breakpoints, "2200")) and (max-width: map-get($breakpoints, "2400")) {
+        @content;
+    }
+}
+
+@mixin screen-2400 {
+    @media (min-width: map-get($breakpoints, "2400")) {
+        @content;
+    }
+}

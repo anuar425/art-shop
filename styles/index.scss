@@ -1,3 +1,5 @@
+@import "./components/breakpoints.scss";
+
 // custom styles
 .custom-icon {
     width: 35px;
@@ -39,6 +41,7 @@
 // Molecules
 
 @import "./components/Molecules/MobileMenu.scss";
+@import "./components/Molecules/PreviewImage.scss";
 .image-card__container {
     .parallax-container {
         width: "100%";
@@ -90,9 +93,7 @@
 @import "./components/Organisms/Footer.scss";
 @import "./components/Organisms/ShopImage.scss";
 @import "./components/Organisms/ContactFrom.scss";
-.header {
-    background-color: rgb(40, 40, 40);
-}
+@import "./components/Organisms/Header.scss";
 
 .masonry-grid {
     display: flex;

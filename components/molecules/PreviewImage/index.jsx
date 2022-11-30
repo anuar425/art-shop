@@ -1,31 +1,40 @@
-import { Image, ModalContainer, NextImage } from "@/components/atoms";
 import { clearImage, getImage } from "@/redux/slice/appSlice";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import ReactDOM from "react-dom";
+import {
+  motion,
+  AnimatePresence,
+  LazyMotion,
+  domAnimation,
+} from "framer-motion";
+import { Image } from "@/components/atoms";
 
 function PreviewImage(props) {
   const [isBrowser, setIsBrowser] = useState(false);
-
   const [image, setImage] = useState(null);
   const [imageLoading, setImageLoading] = useState(true);
+  const [fullscreenHover, setFullscreenHover] = useState(false);
+  const [fullscreen, setFullscreen] = useState(false);
+  const modalOverflowRef = useRef();
+  const closeButtonRef = useRef();
+  const closeRef = useRef();
 
-  const CloseModal = () => {
-    props.onHide();
+  const closeModal = (event) => {
+    if (
+      modalOverflowRef.current === event.target ||
+      closeButtonRef.current === event.target ||
+      closeRef.current === event.target
+    ) {
+      props.onHide();
+    }
   };
 
   useEffect(() => {
-    // if (props.imageId != props.image?.id) {
-    //   setImage(null);
-    // console.log(props.imageId - 1, "imageId");
     props.getImage(props.imageId - 1);
-    // }
   }, [props.imageId]);
 
   useEffect(() => {
-    // console.log(props.image);
-
-    // console.log("image");
     setImage(props.image);
   }, [props.image]);
 
@@ -33,35 +42,117 @@ function PreviewImage(props) {
     setIsBrowser(true);
   }, []);
 
+  useEffect(() => {
+    console.log("close");
+    if (props.show) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  }, [props.show]);
+
   if (isBrowser) {
     return (
       <>
         {ReactDOM.createPortal(
           <>
-            {props.show ? (
-              <div className="preview-modal">
-                <div className="container-fluid">
-                  <div className="row">
-                    <div className="col-8 position-relative">
-                      {!image ? null : (
-                        <NextImage src={`/${image.path}`} alt="image" />
-                      )}
-                    </div>
-                    <div className="col-4">
-                      {!image ? null : (
-                        <>
-                          <h2>{image.name}</h2>
+            <LazyMotion features={domAnimation}>
+              <AnimatePresence initial={false} exitBeforeEnter={true}>
+                {props.show ? (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    // transition={{
+                    //   duration: 0.2,
+                    // }}
+                    className="preview-modal-overlay"
+                  >
+                    <div
+                      className="preview-modal"
+                      ref={modalOverflowRef}
+                      onClick={closeModal}
+                    >
+                      <div className="preview-modal-container container-fluid">
+                        <div className="preview-modal-content row justify-content-center">
+                          <div className="col-12 mb-3 fs-4 d-md-none d-block">
+                            <div
+                              className=" bi bi-x-lg"
+                              ref={closeRef}
+                              onClick={closeModal}
+                            ></div>
+                          </div>
+                          <div
+                            className={`${
+                              fullscreen
+                                ? "preview-modal-image-container-full"
+                                : "preview-modal-image-container"
+                            } col-12`}
+                          >
+                            {!image ? null : (
+                              <>
+                                <div className="preview-modal-image-button">
+                                  <Image
+                                    src={`/${image.path}`}
+                                    alt="image"
+                                    className="preview-modal-image"
+                                    onMouseEnter={() =>
+                                      setFullscreenHover(true)
+                                    }
+                                    onMouseLeave={() =>
+                                      setFullscreenHover(false)
+                                    }
+                                    onClick={() => setFullscreen(!fullscreen)}
+                                  />
+                                  <div
+                                    className={`preview-modal-image-fullscreen bi bi-arrows-fullscreen ${
+                                      fullscreenHover ? "d-block" : "d-none"
+                                    }`}
+                                    onMouseEnter={() =>
+                                      setFullscreenHover(true)
+                                    }
+                                    onMouseLeave={() =>
+                                      setFullscreenHover(false)
+                                    }
+                                    onClick={() => setFullscreen(!fullscreen)}
+                                  ></div>
+                                </div>
+                              </>
+                            )}
+                          </div>
 
-                          <p>{image.description}</p>
-                        </>
-                      )}
+                          <div className="preview-modal-description col-12 col-lg-8 fs-4">
+                            {!image ? null : (
+                              <>
+                                <h2>{image.name}</h2>
+                                <p>{image.description}</p>
+                              </>
+                            )}
+                          </div>
+                          {/* <div className="preview-modal-text-container offset-4 col-6">
+                        {!image ? null : (
+                          <>
+                            <p>Description</p>
+                            <p>{image.description}</p>
+                          </>
+                        )}
+                      </div> */}
+                        </div>
+                      </div>
+                      <div
+                        className="preview-modal-close bi bi-x-lg"
+                        ref={closeButtonRef}
+                        onClick={closeModal}
+                      ></div>
+                      <div className="preview-modal-left bi bi-chevron-left"></div>
+                      <div className="preview-modal-right bi bi-chevron-right"></div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            ) : null}
+                  </motion.div>
+                ) : null}
+              </AnimatePresence>
+            </LazyMotion>
           </>,
-          document.getElementById("base-motion-div")
+          document.body
         )}
 
         {/* <ModalContainer show={props.show} onHide={CloseModal} centered size="xl">
