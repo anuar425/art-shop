@@ -1,4 +1,4 @@
-import { Author } from "@/components/organisms";
+import { AboutContent } from "@/components/organisms";
 import { motion } from "framer-motion";
 
 function About() {
@@ -24,7 +24,7 @@ function About() {
           duration: 0.7,
         }}
       > */}
-      <Author />
+      <AboutContent />
       {/* </motion.div> */}
     </>
   );

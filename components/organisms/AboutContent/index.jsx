@@ -1,19 +1,19 @@
 import { Image } from "@/components/atoms";
 
-function Author() {
+function AboutContent() {
   return (
     <>
-      <div className="about__author-container container-fluid">
-        <div className="row">
-          <div className="col-lg-5 col-12 p-0 mb-4 mb-lg-0">
+      <div className="about container-fluid">
+        <div className="about-content row">
+          <div className="about-content-image-container col-lg-5 col-12 p-0 mb-4 mb-lg-0 ">
             <Image
               src="/images/author/ArmatBektas-1.jpg"
               alt="armat-bektas"
-              className="about__author-image w-100"
+              className="about-content-image w-100"
             />
           </div>
           <div className="col d-flex justify-content-center align-items-center ">
-            <div className="about__author-text-container">
+            <div className="about-content-decription-container">
               <h1 className="mb-3">Armat Bektas</h1>
               <p className="w-100 mb-5">
                 Artist, sculptor. Member of the Artists’ Union of the Republic
@@ -53,4 +53,4 @@ function Author() {
     </>
   );
 }
-export default Author;
+export default AboutContent;
