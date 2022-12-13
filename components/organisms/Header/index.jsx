@@ -15,7 +15,7 @@ function Header() {
         <nav className="navbar navbar-expand-lg  bg-light px-lg-3 fw-semibold h-100 ">
           <div className="container-fluid flex-row-reverse flex-lg-row">
             <Link href="/">
-              <a className="navbar-brand  fs-2">Armat Bektas</a>
+              <a className="navbar-brand fs-3">Armat Bektas</a>
             </Link>
 
             <button className="navbar-toggler" onClick={handleShowOffCanvas}>
@@ -23,7 +23,7 @@ function Header() {
             </button>
             <MobileMenu showMenu={show} closeMenu={toggle} />
 
-            <div className="collapse navbar-collapse justify-content-md-end fs-5">
+            <div className="collapse navbar-collapse justify-content-md-end">
               <NavigationMenu />
             </div>
           </div>

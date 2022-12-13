@@ -1,0 +1,33 @@
+.article-card {
+    height: 200px;
+    overflow: hidden;
+    cursor: pointer;
+    &__image {
+        text-align: center;
+        width: 200px;
+        height: 200px;
+    }
+    &__description {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        // Addition lines for 2 line or multiline ellipsis
+        display: -webkit-box !important;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+    }
+}
+
+@include xs {
+    .article-card {
+        height: 120px;
+        cursor: pointer;
+        &__image {
+            width: 120px;
+            height: 120px;
+        }
+        &__description {
+            -webkit-line-clamp: 2;
+        }
+    }
+}

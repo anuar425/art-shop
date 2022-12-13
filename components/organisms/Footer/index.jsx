@@ -3,13 +3,13 @@ import Link from "next/link";
 function Footer() {
   return (
     <>
-      <footer className="footer ">
+      <footer className="footer">
         <div className="bg-brown py-5 text-light">
           <div className="container">
             <div className="row justify-content-md-between">
               <div className="col-12 col-lg-auto mb-5 mb-lg-0 footer__author-action fw-semibold">
                 <p>
-                  I'm always happy to <br />
+                  I am always happy to <br />
                   discuss new projects.
                 </p>
                 <Link href="/contact">

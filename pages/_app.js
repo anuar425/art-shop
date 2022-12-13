@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Provider } from "react-redux";
 import { store } from "@/redux/store";
 import "@/styles/index.scss";
@@ -12,10 +12,16 @@ import {
   motion,
   m,
 } from "framer-motion";
+import { pageMotion } from "@/components/motion";
 
 function MyApp({ Component, pageProps, router }) {
+  const [isBrowser, setIsBrowser] = useState(false);
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap");
+  }, []);
+
+  useEffect(() => {
+    setIsBrowser(true);
   }, []);
 
   // useEffect(() => {
@@ -24,30 +30,27 @@ function MyApp({ Component, pageProps, router }) {
 
   return (
     <Provider store={store}>
-      <Header />
-      <LazyMotion features={domAnimation}>
-        <AnimatePresence initial={false} exitBeforeEnter={true}>
-          <m.div
-            id="base-motion-div"
-            key={router.route}
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-            }}
-            exit={{
-              opacity: 0,
-            }}
-            transition={{
-              duration: 0.6,
-            }}
-          >
-            <Component {...pageProps} />
-          </m.div>
-          <Footer />
-        </AnimatePresence>
-      </LazyMotion>
+      {isBrowser ? (
+        <>
+          <Header />
+          <LazyMotion features={domAnimation}>
+            <AnimatePresence initial={true} exitBeforeEnter={true}>
+              <m.div
+                id="base-motion-div"
+                key={router.route}
+                variants={pageMotion}
+                initial={"initial"}
+                animate={"animate"}
+                exit={"exit"}
+                // transition={"transition"}
+              >
+                <Component {...pageProps} />
+              </m.div>
+              <Footer />
+            </AnimatePresence>
+          </LazyMotion>
+        </>
+      ) : null}
     </Provider>
   );
 }

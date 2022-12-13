@@ -1,34 +1,30 @@
 import Link from "next/link";
-function NavigationMenu({ navbarClassName = "navbar-nav gap-5" }) {
+import React from "react";
+import { navMenuItemHover } from "@/components/motion";
+import { motion } from "framer-motion";
+
+const navMenuLinks = [
+  { href: "/", name: "Work" },
+  { href: "/about", name: "About" },
+  { href: "/events", name: "Events" },
+  { href: "/shop", name: "Shop" },
+  { href: "/contact", name: "Contact" },
+  { href: "/articles", name: "Articles" },
+];
+
+function NavigationMenu({ navbarClassName = "navbar-nav gap-4 h-100" }) {
   return (
     <>
       <ul className={navbarClassName}>
-        <li className="nav-item">
-          <Link href="/">
-            <a className="nav-link">Work</a>
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link href="/about">
-            <a className="nav-link">About</a>
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link href="/events">
-            <a className="nav-link">Events</a>
-          </Link>
-        </li>
-
-        <li className="nav-item">
-          <Link href="/shop">
-            <a className="nav-link">Shop</a>
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link href="/contact">
-            <a className="nav-link">Contact</a>
-          </Link>
-        </li>
+        {navMenuLinks.map((item, id) => (
+          <React.Fragment key={id}>
+            <li className="nav-item">
+              <Link href={item.href}>
+                <a className="nav-menu-link nav-link px-3">{item.name}</a>
+              </Link>
+            </li>
+          </React.Fragment>
+        ))}
       </ul>
     </>
   );

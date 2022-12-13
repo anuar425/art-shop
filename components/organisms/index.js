@@ -7,6 +7,8 @@ import Footer from "organisms/Footer";
 import Hero from "organisms/Hero";
 import EventsGallery from "organisms/EventsGallery";
 import ContactForm from "organisms/ContactForm";
+import ArticlesList from "organisms/ArticlesList";
+
 export {
   Header,
   Gallery,
@@ -17,4 +19,5 @@ export {
   Hero,
   EventsGallery,
   ContactForm,
+  ArticlesList,
 };

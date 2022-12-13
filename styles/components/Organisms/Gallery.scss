@@ -1,0 +1,10 @@
+.masonry-grid {
+    padding: 0px 16px;
+    display: flex;
+    column-gap: 16px;
+    .masonry-grid_column {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+    }
+}

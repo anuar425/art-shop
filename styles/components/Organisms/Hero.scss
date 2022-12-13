@@ -166,7 +166,7 @@
 }
 
 .new-hero::before {
-    content: " ";
+    content: "";
     position: absolute;
     width: 100%;
     height: 100%;
@@ -280,7 +280,7 @@
 
 @media (min-width: 1800px) {
     .new-hero {
-        height: 1100px;
+        height: 92vh;
         .new-hero-title {
             h1 {
                 font-size: 100px;

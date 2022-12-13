@@ -39,7 +39,7 @@ function ShopImage(props) {
                 <h5 className="mb-4">$700.00</h5>
                 <p className="mb-4">{props.app.image?.description}</p>
                 <p className="mb-1">- Watch the Painting Process</p>
-                <p className="mb-1">- 20" x 20" Acrylic on Canvas</p>
+                <p className="mb-1">- 20&apos;x 20&apos;Acrylic on Canvas</p>
                 <p className="mb-1">- Signed by The Artist</p>
                 <p className="mb-5">- Free International Shipping</p>
                 <form>

@@ -5,6 +5,8 @@ import Masonry from "react-masonry-css";
 import { ImageLink, PreviewImage, ImageCard } from "@/components/molecules";
 import useModal from "@/Hooks/useModal";
 import data from "@/testData";
+import { motion } from "framer-motion";
+import { galleryCardMotion } from "@/components/motion";
 
 const breakpointColumnsObj = {
   default: 4,
@@ -29,7 +31,12 @@ function Gallery(props) {
 
   return (
     <>
-      <section className="gallery bg-light py-5">
+      <motion.section
+        initial={"hidden"}
+        whileInView={"animated"}
+        viewport={{ amount: 0.1, once: true }}
+        className="gallery bg-light py-5"
+      >
         <div className="gallery__container">
           <h1 className="text-center mb-5">Gallery</h1>
           <Masonry
@@ -39,21 +46,23 @@ function Gallery(props) {
           >
             {props.app?.images.map((image, key) => (
               <React.Fragment key={key}>
-                <ImageCard
-                  containerProps={{
-                    onClick: (event) => openPreview(key, event),
-                  }}
-                  imageProps={{
-                    src: image.path,
-                    alt: `image-alt-${key}`,
-                    className: "w-100",
-                  }}
-                />
+                <motion.div variants={galleryCardMotion} custom={key}>
+                  <ImageCard
+                    containerProps={{
+                      onClick: (event) => openPreview(key, event),
+                    }}
+                    imageProps={{
+                      src: image.path,
+                      alt: `image-alt-${key}`,
+                      className: "w-100",
+                    }}
+                  />
+                </motion.div>
               </React.Fragment>
             ))}
           </Masonry>
         </div>
-      </section>
+      </motion.section>
       {imageId && (
         <PreviewImage show={show} onHide={toggle} imageId={imageId} />
       )}
